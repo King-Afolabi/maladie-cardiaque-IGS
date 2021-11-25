@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>prédiction maladie cardiaque</title>
+
+    <style>
+    /* CSS code for button */
+    body {
+      background-image: url('static/image/coeur.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+
+    /* CSS code for button */
+    .button_css {
+    color: #494949 !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #ffffff;
+    padding: 20px;
+    border: 4px solid #494949 !important;
+    display: inline-block;
+    transition: all 0.4s ease 0s;
+    }
+
+    .button_css:hover {
+    color: #ffffff !important;
+    background: #f6b93b;
+    border-color: #f6b93b !important;
+    transition: all 0.4s ease 0s;
+    }
+  </style>
+
+
+</head>
+<body>
+
+    <div class="login">
+
+    <center>
+            <br>
+                <br>
+        <form action="{{ url_for('predict')}}" method="post">
+            <br>
+                <br>
+                    <br>
+                        <br>
+
+
+
+            <h1>Entrez les données du patient</h1>
+
+            <input type="text" name="Age" placeholder="AGE" required="required"/>
+            <input type="text" name="Sexe" placeholder="SEXE" required="required"/>
+            <input type="text" name="Douleur Thoracique" placeholder="Doul_Thorax" required="required"/>
+            <input type="text" name="Pression Artérielle" placeholder="P_Arterielle" required="required"/>
+            <input type="text" name="Taux de cholestérol" placeholder="CHOLESTEROL" required="required"/>
+            <input type="text" name="Glycémie à jeun" placeholder="Glycemie_AJ" required="required"/>
+            <input type="text" name="ECG" placeholder="ECG" required="required"/>
+            <input type="text" name="Fréquence Card Max" placeholder="Freq_CardMax" required="required"/>
+            <input type="text" name="Angine" placeholder="ANGINE" required="required"/>
+            <input type="text" name="Dépression" placeholder="Depression" required="required"/>
+            <input type="text" name="Pente" placeholder="PENTE" required="required"/>
+<!--            <input type="text" name="" placeholder="" required="required"/>-->
+
+        <div class="button_cont" align="center">
+            <a class="button_css" target="_blank" rel="nofollow noopener">
+            <button type="submit" class="btn btn-primary btn-block btn-large"><strong>Verdict</strong></button></a>
+        </div>
+
+        </form>
+        </center>
+
+        <!-- Show predicted output using ML model -->
+        <div>
+        <center>
+            <h3>{{ prediction_text }}</h3>
+
+        </center>
+        </div>
+
+    </div>
+
+
+</body>
+</html>
